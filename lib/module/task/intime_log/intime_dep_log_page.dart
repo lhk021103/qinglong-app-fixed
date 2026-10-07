@@ -11,6 +11,7 @@ import 'package:qinglong_app/base/single_account_page.dart';
 import 'package:qinglong_app/base/sp_const.dart';
 import 'package:qinglong_app/base/ui/lazy_load_state.dart';
 import 'package:qinglong_app/base/ui/loading_widget.dart';
+import 'package:qinglong_app/utils/ansi.dart';
 import 'package:qinglong_app/utils/extension.dart';
 import 'package:qinglong_app/utils/sp_utils.dart';
 import 'package:share_plus/share_plus.dart';
@@ -128,14 +129,14 @@ class _InTimeDepLogPageState extends State<InTimeDepLogPage>
                     child: SingleChildScrollView(
                       controller: controller,
                       padding: const EdgeInsets.symmetric(horizontal: 15),
-                      child: ExtendedText(
-                        content!,
+                      child: ExtendedText.rich(
+                        AnsiText.build(
+                          content!,
+                          const TextStyle(fontSize: 12),
+                        ),
                         selectionHeightStyle: BoxHeightStyle.max,
                         selectionEnabled: true,
                         selectionWidthStyle: BoxWidthStyle.max,
-                        style: const TextStyle(
-                          fontSize: 12,
-                        ),
                       ),
                     ),
                   ),

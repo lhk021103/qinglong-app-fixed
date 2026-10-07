@@ -9,6 +9,7 @@ import 'package:qinglong_app/base/ql_app_bar.dart';
 import 'package:qinglong_app/base/single_account_page.dart';
 import 'package:qinglong_app/base/ui/lazy_load_state.dart';
 import 'package:qinglong_app/base/ui/loading_widget.dart';
+import 'package:qinglong_app/utils/ansi.dart';
 import 'package:qinglong_app/utils/extension.dart';
 
 
@@ -46,13 +47,13 @@ class _TaskLogDetailPageState extends ConsumerState<TaskLogDetailPage>
               padding: const EdgeInsets.symmetric(
                 horizontal: 15,
               ),
-              child: SelectableText(
-                (content == null || content!.isEmpty) ? "暂无数据" : content!,
+              child: SelectableText.rich(
+                AnsiText.build(
+                  (content == null || content!.isEmpty) ? "暂无数据" : content!,
+                  const TextStyle(fontSize: 12),
+                ),
                 selectionHeightStyle: BoxHeightStyle.max,
                 selectionWidthStyle: BoxWidthStyle.max,
-                style: const TextStyle(
-                  fontSize: 12,
-                ),
               ),
             ),
     );
